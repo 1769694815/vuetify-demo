@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar
+    <!-- <v-app-bar
       app
       color="primary"
       dark
@@ -35,26 +35,22 @@
         <span class="mr-2">Latest Release</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
-    </v-app-bar>
+    </v-app-bar> -->
 
-    <v-content>
-      <HelloWorld/>
-    </v-content>
+    <transition :name="transitionName">
+      <router-view ref="appRouterView"/>
+    </transition>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
 export default {
   name: 'App',
 
-  components: {
-    HelloWorld,
+  data() {
+    return {
+      transitionName: '', // 页面切换动画的class名
+    }
   },
-
-  data: () => ({
-    //
-  }),
 };
 </script>
